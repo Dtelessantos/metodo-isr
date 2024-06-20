@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="table-container">
+    <h1>Painel de Transações</h1>
+    <table class="transactions-table">
+        <thead>
+            <tr>
+                <th>Data de Lançamento</th>
+                <th>Nome</th>
+                <th>Investimento</th>
+                <th>Retorno</th>
+                <th>Contas Produzidas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.name }}</td>
+                <td>{{ transaction.investment }}</td>
+                <td>{{ transaction.return_amount }}</td>
+                <td>{{ transaction.produced_accounts }}</td>
+                <td>
+                  <a href="#">Editar</a> | <a href="#">Excluir</a>
+              </td>
+              
+                <td>
+                    <!-- Aqui você pode adicionar botões de ações, como excluir ou editar -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
